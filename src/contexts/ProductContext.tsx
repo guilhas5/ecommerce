@@ -1,6 +1,6 @@
 import{createContext, useState, useEffect} from "react"
 
-type ProductType = {
+export type ProductType = {
   id: number;
   title: string;
   price: number;

@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import { Button } from "flowbite-react";
+import Product from "../components/Product";
 
 const Home = () => {
   const products = useContext(ProductContext);
@@ -17,13 +18,8 @@ const Home = () => {
   };
   return (
     <div>
-      <section className="py-16">
-        <div className="container mx-auto">
-          <div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-7
-          max-w-sm mx-auto md:max-w-none md:mx-0"
-          >
-            <div className="flex justify-between">
+      <section className="py-20">
+            <div className="flex justify-center gap-5">
               <Button
                 onClick={() => handleCategory("")}
                 gradientDuoTone="purpleToBlue"
@@ -53,8 +49,15 @@ const Home = () => {
                 Jewlery
               </Button>
             </div>
+      
+        <div className="container mx-auto">
+            <div
+            className="pt-12 grid center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-7
+          max-w-sm mx-auto md:max-w-none md:mx-0"
+          >
             {filterCategories.map((product) => (
-              <div key={product.id}>{product.title}</div>
+              <Product product={product} key={product.id} />
+                
             ))}
           </div>
         </div>
