@@ -9,6 +9,7 @@
     /* Bundler mode */
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true, // Add a comma after this line
+
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",

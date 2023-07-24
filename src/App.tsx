@@ -1,14 +1,23 @@
-import { useState } from 'react'
-
-import './index.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Footer from "./componentsproject/Footer";
+import Sidebar from "./componentsproject/Sidebar";
+import "./index.css";
+import Home from "./pages/Home";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
-
   return (
-    <>
-      <h1>hello</h1>
-    </>
-  )
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
+        </Routes>
+      </Router>
+      <Sidebar />
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
