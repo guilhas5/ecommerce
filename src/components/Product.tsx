@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 import { BsPlus, BsEyeFill } from "react-icons/bs";
-import { Button } from "flowbite-react";
-
 import { ProductType } from "../contexts/ProductContext";
 
 type Props = {
