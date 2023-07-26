@@ -4,12 +4,14 @@ import { IoMdArrowForward } from "react-icons/io";
 import { FiTrash2 } from "react-icons/fi";
 import CartItem from "../components/Cartitem";
 import { SidebarContext, SidebarContextType } from "../contexts/SidebarContext";
+import { CartContext } from "../contexts/CartContext";
 
 type Props = {};
 
 const Sidebar = (props: Props) => {
   const { isOpen, handleClose } =
     useContext<SidebarContextType>(SidebarContext);
+    console.log(useContext(CartContext))
   return (
     <div
       className={`${

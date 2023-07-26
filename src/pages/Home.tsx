@@ -7,8 +7,6 @@ const Home = () => {
   const products = useContext(ProductContext);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
 
-  console.log(products);
-
   const filterCategories = products.filter((product) => {
     return selectedCategory === "" || product.category === selectedCategory;
   });
