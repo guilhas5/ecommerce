@@ -8,6 +8,7 @@ import App from "./App";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
+    <Router>
     <SidebarProvider>
       <CartProvider>
     <ProductProvider>
@@ -17,4 +18,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </ProductProvider>
       </CartProvider>
     </SidebarProvider>
+    </Router>
 );

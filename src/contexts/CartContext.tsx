@@ -3,6 +3,7 @@ import { ProductContext, ProductType } from "./ProductContext";
 
 type CartContextType = {
   addToCart: (product: ProductType, id: number) => void;
+  cart: ProductType[];
 };
 
 type Props = {
@@ -11,6 +12,8 @@ type Props = {
 
 export const CartContext = createContext<CartContextType>({
   addToCart: () => {},
+  cart:[]
+  
 });
 const CartProvider = ({ children }: Props) => {
   const [cart, setCart] = useState<ProductType[]>([]);
@@ -37,7 +40,7 @@ const CartProvider = ({ children }: Props) => {
   console.log(cart)
 
   return (
-    <CartContext.Provider value={{ addToCart }}>
+    <CartContext.Provider value={{cart, addToCart }}>
       {children}
     </CartContext.Provider>
   );

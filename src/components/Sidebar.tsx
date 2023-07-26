@@ -11,7 +11,7 @@ type Props = {};
 const Sidebar = (props: Props) => {
   const { isOpen, handleClose } =
     useContext<SidebarContextType>(SidebarContext);
-    console.log(useContext(CartContext))
+  const { cart } = useContext(CartContext);
   return (
     <div
       className={`${
@@ -26,6 +26,11 @@ duration-300 z-20 px-4 lg:px-[35px]`}
             <IoMdArrowForward className="text-2xl" />
           </button>
         </div>
+      </div>
+      <div>
+        {cart.map((item) => {
+          return <CartItem item={item} key={item.id} />;
+        })}
       </div>
     </div>
   );
