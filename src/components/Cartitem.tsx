@@ -9,12 +9,13 @@ type Props = {
 const CartItem = ({ item }: Props) => {
   const { id, title, image, price, amount } = item;
   return (
-    <div className="flex gap-x-8 pt-8">
+    <div className="flex gap-x-4 py-2 lg: px-6 border-b w-full font-light">
+      <div className="w-full min-h-[150px] flex items-center gap-x-4 text-gray-500">
       <Link to={`/product/${id}`}>
         <img className="max-w-[80px]" src={image} alt="item image" />
       </Link>
-      <div className="flex flex-col ">
-        <div className="flex gap-16 items-center mb-2">
+      <div className="w-full flex flex-col ">
+        <div className="flex justify-between mb-2">
           <Link
             to={`/product/${id}`}
             className="text-sm uppercase font-medium max-w-[240px] text-primary hover:underline"
@@ -43,13 +44,14 @@ const CartItem = ({ item }: Props) => {
             </div>
           </div>
           {/* Item price */}
-          <div className="flex justify-center items-center">
+          <div className="flex flex-1 justify-around items-center">
             {price}€
             </div>
-          <div className="flex justify-center items-center">
-            {`${item.price * amount}`}€
+          <div className="flex flex-1 justify-end items-center text-primary font-medium">
+            {`${price * amount}`}€
             </div>
         </div>
+      </div>
       </div>
     </div>
   );
