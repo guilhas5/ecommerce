@@ -13,10 +13,8 @@ const Product = ({ product }: Props) => {
   const { addToCart } = useContext(CartContext);
   const { id, image, category, title, price } = product;
 
-  const formattedPrice = price.toLocaleString("en-US", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
+  const formattedPrice = (price).toFixed(2);
+
   
   return (
     <div>

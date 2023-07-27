@@ -8,6 +8,7 @@ type CartContextType = {
   addQuantity: (id: number) => void;
   minusQuantity: (id: number) => void;
   cart: ProductType[];
+  setCart: React.Dispatch<React.SetStateAction<ProductType[]>>
 };
 
 type Props = {
@@ -20,6 +21,7 @@ export const CartContext = createContext<CartContextType>({
   addQuantity: () => {},
   minusQuantity:() => {},
   cart: [],
+  setCart:()=>{}
 });
 const CartProvider = ({ children }: Props) => {
   const [cart, setCart] = useState<ProductType[]>([]);
@@ -74,7 +76,7 @@ const CartProvider = ({ children }: Props) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, addQuantity, minusQuantity }}
+      value={{ cart,setCart, addToCart, removeFromCart, addQuantity, minusQuantity }}
     >
       {children}
     </CartContext.Provider>
