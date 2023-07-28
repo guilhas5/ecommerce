@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { BsPlus, BsEyeFill } from "react-icons/bs";
 import { ProductType } from "../contexts/ProductContext";
 import { CartContext } from "../contexts/CartContext";
-import toast, { Toaster } from 'react-hot-toast';
 
 type Props = {
   product: ProductType;
