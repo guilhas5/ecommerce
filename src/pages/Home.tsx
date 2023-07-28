@@ -19,51 +19,50 @@ const Home = () => {
     <div>
       <Hero />
       <section className="py-20">
-            <div className="flex justify-center gap-5">
-              <Button
-                onClick={() => handleCategory("")}
-                gradientDuoTone="cyanToBlue"
-                outline
-              >
-                All
-              </Button>
-              <Button
-                onClick={() => handleCategory("women's clothing")}
-                gradientDuoTone="cyanToBlue"
-                outline
-              >
-                Women's
-              </Button>
-              <Button
-                onClick={() => handleCategory("men's clothing")}
-                gradientDuoTone="cyanToBlue"
-                outline
-              >
-                Mens
-              </Button>
-              <Button
-                onClick={() => handleCategory("jewelery")}
-                gradientDuoTone="cyanToBlue"
-                outline
-              >
-                Jewlery
-              </Button>
-              <Button
-                onClick={() => handleCategory("electronics")}
-                gradientDuoTone="cyanToBlue"
-                outline
-              >
-                Electronics
-              </Button>
-            </div>
         <div className="container mx-auto">
-            <div
+          <div className=" flex flex-wrap justify-center gap-3 md:gap-5">
+            <Button
+              onClick={() => handleCategory("")}
+              gradientDuoTone="cyanToBlue"
+              outline
+            >
+              All
+            </Button>
+            <Button
+              onClick={() => handleCategory("women's clothing")}
+              gradientDuoTone="cyanToBlue"
+              outline
+            >
+              Women's
+            </Button>
+            <Button
+              onClick={() => handleCategory("men's clothing")}
+              gradientDuoTone="cyanToBlue"
+              outline
+            >
+              Mens
+            </Button>
+            <Button
+              onClick={() => handleCategory("jewelery")}
+              gradientDuoTone="cyanToBlue"
+              outline
+            >
+              Jewlery
+            </Button>
+            <Button
+              onClick={() => handleCategory("electronics")}
+              gradientDuoTone="cyanToBlue"
+              outline
+            >
+              Electronics
+            </Button>
+          </div>
+          <div
             className="pt-12 grid center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-7
           max-w-sm mx-auto md:max-w-none md:mx-0"
           >
             {filterCategories.map((product) => (
               <Product product={product} key={product.id} />
-                
             ))}
           </div>
         </div>
