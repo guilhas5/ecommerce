@@ -1,4 +1,4 @@
-import{createContext, useState, useEffect} from "react"
+import { createContext, useState, useEffect } from "react";
 
 export type ProductType = {
   id: number;
@@ -15,31 +15,31 @@ export type ProductType = {
 };
 
 type Props = {
-  children: React.ReactNode
-}
-const ProductContext = createContext<ProductType[]>([])
-const ProductProvider = ({children}:Props) => {
-  const [products, setProducts] = useState<ProductType[]>([])
- 
+  children: React.ReactNode;
+};
+const ProductContext = createContext<ProductType[]>([]);
+const ProductProvider = ({ children }: Props) => {
+  const [products, setProducts] = useState<ProductType[]>([]);
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const res = await fetch("https://fakestoreapi.com/products/");
         const data = await res.json();
-        setProducts(data)
-        console.log(data)
+        setProducts(data);
+        console.log(data);
       } catch (error) {
-        console.error("Error fetching products", error)
+        console.error("Error fetching products", error);
       }
-    }
-    fetchProducts()
-  },[])
+    };
+    fetchProducts();
+  }, []);
 
   return (
     <ProductContext.Provider value={products}>
       {children}
     </ProductContext.Provider>
-  )
-}
+  );
+};
 
-export {ProductProvider, ProductContext}
+export { ProductProvider, ProductContext };
