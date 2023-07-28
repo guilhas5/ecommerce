@@ -12,8 +12,7 @@ type Props = {};
 const Sidebar = (props: Props) => {
   const { isOpen, handleClose } =
     useContext<SidebarContextType>(SidebarContext);
-  const [totalPrice, setTotalPrice] = useState<string>("0");
-  const { cart,setCart } = useContext(CartContext);
+  const { cart,setCart,totalPrice } = useContext(CartContext);
 
   const deleteCart = () => {
     const handleConfirm = () => {
@@ -34,12 +33,7 @@ const Sidebar = (props: Props) => {
     );
   };
 
-  useEffect(() => {
-    const finalPrice = cart
-      .reduce((total, item) => total + item.price * item.amount, 0)
-      .toFixed(2);
-    setTotalPrice(finalPrice);
-  }, [cart]);
+  
 
   return (
     <div
@@ -56,12 +50,12 @@ duration-300 z-20 px-4 lg:px-[35px]`}
           </button>
         </div>
       </div>
-      <div>
+      <div className="flex flex-col gap-y-2 overflow-auto max-h-[70vh]">
         {cart.map((item) => {
           return <CartItem item={item} key={item.id} />;
         })}
       </div>
-      <div className="flex flex-col gap-y-3 py-4 mt-4">
+      <div className="flex flex-col gap-y-3 py-4 mt-4 mb-10 ">
         <div className="py-2 flex w-full justify-between items-center ">
           <div className="uppercase font-semibold">
             <span className="mr-2">Total:</span> {totalPrice}€
