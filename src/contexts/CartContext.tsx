@@ -9,6 +9,7 @@ type CartContextType = {
   minusQuantity: (id: number) => void;
   cart: ProductType[];
   setCart: React.Dispatch<React.SetStateAction<ProductType[]>>
+  itemAmount:number;
 };
 
 type Props = {
@@ -21,10 +22,12 @@ export const CartContext = createContext<CartContextType>({
   addQuantity: () => {},
   minusQuantity:() => {},
   cart: [],
-  setCart:()=>{}
+  setCart:()=>{},
+  itemAmount:0
 });
 const CartProvider = ({ children }: Props) => {
   const [cart, setCart] = useState<ProductType[]>([]);
+  const [itemAmount,setItemAmount] = useState<number>(0)
 
   const addToCart = (product: ProductType, id: number) => {
     const newItem = { ...product, amount: 1 };
@@ -47,6 +50,7 @@ const CartProvider = ({ children }: Props) => {
       setCart([...cart, newItem]);
     }
   };
+
   const removeFromCart = (id: number) => {
     const newCart = cart.filter((item) => item.id !== id);
     setCart(newCart);
@@ -55,6 +59,7 @@ const CartProvider = ({ children }: Props) => {
     })
     console.log(cart);
   };
+
   const addQuantity = (id: number) => {
     const index = cart.findIndex((item) => item.id === id);
     if (index !== -1) {
@@ -63,6 +68,7 @@ const CartProvider = ({ children }: Props) => {
       setCart(updatedCart);
     }
   };
+
   const minusQuantity = (id: number) => {
     const index = cart.findIndex((item) => item.id === id);
     if (index !== -1) {
@@ -73,10 +79,13 @@ const CartProvider = ({ children }: Props) => {
       }
     }
   };
+  const cartQuantity = () => {
+    setItemAmount(cart.length)
+  }
 
   return (
     <CartContext.Provider
-      value={{ cart,setCart, addToCart, removeFromCart, addQuantity, minusQuantity }}
+      value={{ cart,setCart, addToCart, removeFromCart, addQuantity, minusQuantity,itemAmount }}
     >
       {children}
     </CartContext.Provider>
