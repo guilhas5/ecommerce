@@ -1,12 +1,11 @@
 import { useContext,useEffect,useState } from "react";
-import { SidebarContextType, SidebarContext } from "../contexts/SidebarContext";
+import { SidebarContext } from "../contexts/SidebarContext";
 import { CartContext } from "../contexts/CartContext";
 import { BsBag } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Logo from "../assets/logo.svg"
-type Props = {};
 
-const Header = (props: Props) => {
+const Header = () => {
   const [isActive,setIsActive] = useState<boolean>(false)
   const { setIsOpen, isOpen } = useContext(SidebarContext);
   const { itemAmount } = useContext(CartContext);

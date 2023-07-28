@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import { IoMdArrowForward } from "react-icons/io";
 import { FiTrash2 } from "react-icons/fi";
 import CartItem from "../components/Cartitem";
@@ -7,12 +7,12 @@ import { CartContext } from "../contexts/CartContext";
 import ConfirmationModal from "../modal/ConfirmationModal";
 import toast from "react-hot-toast";
 
-type Props = {};
 
-const Sidebar = (props: Props) => {
+
+const Sidebar = () => {
   const { isOpen, handleClose } =
     useContext<SidebarContextType>(SidebarContext);
-  const { cart,setCart,totalPrice } = useContext(CartContext);
+  const { cart, setCart, totalPrice } = useContext(CartContext);
 
   const deleteCart = () => {
     const handleConfirm = () => {
@@ -32,8 +32,6 @@ const Sidebar = (props: Props) => {
       }
     );
   };
-
-  
 
   return (
     <div
