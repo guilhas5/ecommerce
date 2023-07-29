@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 
 import womanImg from "../assets/woman_hero.png";
 const Hero = () => {
