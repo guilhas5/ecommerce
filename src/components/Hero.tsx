@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+
 import womanImg from "../assets/woman_hero.png";
 const Hero = () => {
   return (
@@ -14,12 +16,14 @@ const Hero = () => {
             <br />
             <span className="font-semibold">Seasonal Sale</span>
           </h1>
-          <Link
-            to={"/products"}
-            className="self-start uppercase font-semibold border-b-2 border-primary"
+          <ScrollLink
+            to="home" // Target the ID of the element to scroll to
+            smooth={true}
+            duration={500}
+            className="self-start cursor-pointer uppercase font-semibold border-b-2 border-primary"
           >
             Discover More
-          </Link>
+          </ScrollLink>
         </div>
         <div className="hidden lg:block">
           <img src={womanImg} alt="woman image" />

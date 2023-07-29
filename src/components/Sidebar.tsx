@@ -8,10 +8,11 @@ import ConfirmationModal from "../modal/ConfirmationModal";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
+
 const Sidebar = () => {
   const { isOpen, handleClose } =
     useContext<SidebarContextType>(SidebarContext);
-  const { cart, setCart, totalPrice,itemAmount } = useContext(CartContext);
+  const { cart, setCart, totalPrice, itemAmount } = useContext(CartContext);
 
   const deleteCart = () => {
     const handleConfirm = () => {
@@ -40,7 +41,9 @@ const Sidebar = () => {
 duration-300 z-20 px-4 lg:px-[35px]`}
     >
       <div className="flex items-center justify-between py-5 border-b ">
-        <div className="uppercase text-sm font-semibold">Shopping Bag ({itemAmount})</div>
+        <div className="uppercase text-sm font-semibold">
+          Shopping Bag ({itemAmount})
+        </div>
         <div className="flex w-8 h-8 justify-center items-center ">
           <button onClick={handleClose}>
             <IoMdArrowForward className="text-2xl" />
@@ -48,7 +51,7 @@ duration-300 z-20 px-4 lg:px-[35px]`}
         </div>
       </div>
       <div
-        className="flex flex-col gap-y-2 overflow-y-auto overflow-x-hidden border-b h-[520px] 
+        className="flex flex-col gap-y-2 overflow-y-auto overflow-x-hidden mb-4 border-b h-[60vh] 
       lg:h-[620px]"
       >
         {cart.map((item) => {
@@ -67,12 +70,6 @@ duration-300 z-20 px-4 lg:px-[35px]`}
             <FiTrash2 />
           </button>
         </div>
-        <Link
-          to="/"
-          className="bg-gray-200 flex justify-center items-center p-4 w-full text-primary font-medium"
-        >
-          View Cart
-        </Link>
         <Link
           to="/"
           className="bg-primary flex justify-center items-center p-4 text-white font-medium"
