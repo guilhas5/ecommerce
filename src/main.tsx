@@ -8,6 +8,8 @@ import App from "./App";
 import "./index.css";
 import { Toaster } from "react-hot-toast";
 
+
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <Router>
     <SidebarProvider>

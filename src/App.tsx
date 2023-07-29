@@ -5,15 +5,18 @@ import Sidebar from "./components/Sidebar";
 import "./index.css";
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
+import DefaultErrorPage from "./pages/DefaultErrorPage";
 
 function App() {
+  
   return (
     <div>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products/:id" element={<ProductDetails />} />
-        </Routes>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="*" element={<DefaultErrorPage />} />           	
+      </Routes>
       <Sidebar />
       <Footer />
     </div>

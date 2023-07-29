@@ -34,7 +34,7 @@ const Product = ({ product }: Props) => {
               </div>
             </button>
             <Link
-              to={`/product${id}`}
+              to={`/product/${id}`}
               className="w-12 h-12 flex justify-center items-center text-primary bg-white drop-shadow-xl "
             >
               <BsEyeFill />
