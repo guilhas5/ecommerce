@@ -6,8 +6,7 @@ import { SidebarContext, SidebarContextType } from "../contexts/SidebarContext";
 import { CartContext } from "../contexts/CartContext";
 import ConfirmationModal from "../modal/ConfirmationModal";
 import toast from "react-hot-toast";
-
-
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const { isOpen, handleClose } =
@@ -48,12 +47,15 @@ duration-300 z-20 px-4 lg:px-[35px]`}
           </button>
         </div>
       </div>
-      <div className="flex flex-col gap-y-2 overflow-auto max-h-[70vh]">
+      <div
+        className="flex flex-col gap-y-2 overflow-y-auto overflow-x-hidden border-b h-[520px] 
+      lg:h-[620px]"
+      >
         {cart.map((item) => {
           return <CartItem item={item} key={item.id} />;
         })}
       </div>
-      <div className="flex flex-col gap-y-3 py-4 mt-4 mb-10 ">
+      <div className="flex flex-col gap-y-3 py-4 mt-4">
         <div className="py-2 flex w-full justify-between items-center ">
           <div className="uppercase font-semibold">
             <span className="mr-2">Total:</span> {totalPrice}€
@@ -65,6 +67,18 @@ duration-300 z-20 px-4 lg:px-[35px]`}
             <FiTrash2 />
           </button>
         </div>
+        <Link
+          to="/"
+          className="bg-gray-200 flex justify-center items-center p-4 w-full text-primary font-medium"
+        >
+          View Cart
+        </Link>
+        <Link
+          to="/"
+          className="bg-primary flex justify-center items-center p-4 text-white font-medium"
+        >
+          CheckOut
+        </Link>
       </div>
     </div>
   );
