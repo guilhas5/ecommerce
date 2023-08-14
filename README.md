@@ -1,4 +1,4 @@
-# Gym-LandigPage
+# Find Yourself
 
 ## Introduction
 
